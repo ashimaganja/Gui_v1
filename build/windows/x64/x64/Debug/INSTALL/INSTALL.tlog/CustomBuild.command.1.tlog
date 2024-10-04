@@ -1,0 +1,10 @@
+^C:\USERS\ASHIM\ONEDRIVE\DOCUMENTS\REPO\FLUTTERAPPS\GUI_V1\BUILD\WINDOWS\X64\CMAKEFILES\DF3DAD02C7112A6EA7D0CD552684DFDE\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

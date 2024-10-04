@@ -1,0 +1,10 @@
+^C:\USERS\ASHIM\ONEDRIVE\DOCUMENTS\REPO\FLUTTERAPPS\GUI_V1\BUILD\WINDOWS\X64\_DEPS\NUGET-SUBBUILD\CMAKEFILES\A52958A1F5BC8DC6FA51DED14DD9CFE2\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_v1/build/windows/x64/_deps/nuget-subbuild -BC:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_v1/build/windows/x64/_deps/nuget-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_v1/build/windows/x64/_deps/nuget-subbuild/nuget-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

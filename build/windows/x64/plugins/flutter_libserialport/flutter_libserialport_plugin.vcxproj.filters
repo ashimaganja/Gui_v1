@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1\windows\flutter\ephemeral\.plugin_symlinks\flutter_libserialport\windows\flutter_libserialport_plugin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1\windows\flutter\ephemeral\.plugin_symlinks\flutter_libserialport\windows\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{875247F9-43E1-3CD1-A01C-ECDF39522FBC}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
