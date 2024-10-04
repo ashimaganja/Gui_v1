@@ -7,6 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.gui_v1"
+    namespace= "com.example.flutter_libserialport"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
