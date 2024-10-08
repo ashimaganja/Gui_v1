@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1\windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc">
+    <ClCompile Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1\windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc">
+    <ClCompile Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1\windows\flutter\ephemeral\cpp_client_wrapper\plugin_registrar.cc">
+    <ClCompile Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\windows\flutter\ephemeral\cpp_client_wrapper\plugin_registrar.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1\windows\flutter\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\windows\flutter\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{ACDE64D1-118C-3584-B637-36B8D2CFFA81}</UniqueIdentifier>
+      <UniqueIdentifier>{55CD2D12-6AE8-3F12-B716-FC3908D2CF13}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{875247F9-43E1-3CD1-A01C-ECDF39522FBC}</UniqueIdentifier>
+      <UniqueIdentifier>{9C2CEDCA-6F36-37D4-8704-8441AF3C1A1A}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

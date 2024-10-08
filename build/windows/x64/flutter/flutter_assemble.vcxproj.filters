@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1\build\windows\x64\CMakeFiles\f29fe28060847247b7cc838ff425d6f1\flutter_windows.dll.rule">
+    <CustomBuild Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\build\windows\x64\CMakeFiles\bc1937e91989599db6478121dd682107\flutter_windows.dll.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1\build\windows\x64\CMakeFiles\c814a9fe2b7fd20bcdf731736b1c7139\flutter_assemble.rule">
+    <CustomBuild Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\build\windows\x64\CMakeFiles\a920929e95179649d703744b2d3a3ce0\flutter_assemble.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1\windows\flutter\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\windows\flutter\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1\build\windows\x64\flutter\CMakeFiles\flutter_assemble" />
+    <None Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\build\windows\x64\flutter\CMakeFiles\flutter_assemble" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{ACDE64D1-118C-3584-B637-36B8D2CFFA81}</UniqueIdentifier>
+      <UniqueIdentifier>{55CD2D12-6AE8-3F12-B716-FC3908D2CF13}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

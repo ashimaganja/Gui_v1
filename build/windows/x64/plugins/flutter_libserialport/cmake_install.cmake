@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_v1/windows/flutter/ephemeral/.plugin_symlinks/flutter_libserialport/windows
+# Install script for directory: C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/windows/flutter/ephemeral/.plugin_symlinks/flutter_libserialport/windows
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,6 +34,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_v1/build/windows/x64/plugins/flutter_libserialport/libserialport/cmake_install.cmake")
+  include("C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/plugins/flutter_libserialport/libserialport/cmake_install.cmake")
 endif()
 

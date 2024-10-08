@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_v1/windows/flutter/ephemeral/.plugin_symlinks/flutter_libserialport/windows/libserialport
+# Install script for directory: C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/windows/flutter/ephemeral/.plugin_symlinks/flutter_libserialport/windows/libserialport
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

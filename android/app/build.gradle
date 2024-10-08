@@ -7,9 +7,9 @@ plugins {
 
 android {
     namespace = "com.example.gui_v1"
-    namespace= "com.example.flutter_libserialport"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
+
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

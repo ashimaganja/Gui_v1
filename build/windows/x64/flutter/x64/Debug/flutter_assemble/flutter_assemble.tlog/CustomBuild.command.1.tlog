@@ -1,6 +1,6 @@
-^C:\USERS\ASHIM\ONEDRIVE\DOCUMENTS\REPO\FLUTTERAPPS\GUI_V1\BUILD\WINDOWS\X64\CMAKEFILES\F29FE28060847247B7CC838FF425D6F1\FLUTTER_WINDOWS.DLL.RULE
+^C:\USERS\ASHIM\ONEDRIVE\DOCUMENTS\REPO\FLUTTERAPPS\GUI_LAB\GUI_V1\BUILD\WINDOWS\X64\CMAKEFILES\BC1937E91989599DB6478121DD682107\FLUTTER_WINDOWS.DLL.RULE
 setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\flutter\flutter PROJECT_DIR=C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1 FLUTTER_ROOT=C:\flutter\flutter FLUTTER_EPHEMERAL_DIR=C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1\windows\flutter\ephemeral PROJECT_DIR=C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1 FLUTTER_TARGET=C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1\lib\main.dart DART_DEFINES=Zmx1dHRlci5pbnNwZWN0b3Iuc3RydWN0dXJlZEVycm9ycz10cnVl DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_v1\.dart_tool\package_config.json C:/flutter/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\flutter\flutter PROJECT_DIR=C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1 FLUTTER_ROOT=C:\flutter\flutter FLUTTER_EPHEMERAL_DIR=C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\windows\flutter\ephemeral PROJECT_DIR=C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1 FLUTTER_TARGET=C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\lib\main.dart DART_DEFINES=Zmx1dHRlci5pbnNwZWN0b3Iuc3RydWN0dXJlZEVycm9ycz10cnVl DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\.dart_tool\package_config.json C:/flutter/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -8,7 +8,7 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\ASHIM\ONEDRIVE\DOCUMENTS\REPO\FLUTTERAPPS\GUI_V1\BUILD\WINDOWS\X64\CMAKEFILES\C814A9FE2B7FD20BCDF731736B1C7139\FLUTTER_ASSEMBLE.RULE
+^C:\USERS\ASHIM\ONEDRIVE\DOCUMENTS\REPO\FLUTTERAPPS\GUI_LAB\GUI_V1\BUILD\WINDOWS\X64\CMAKEFILES\A920929E95179649D703744B2D3A3CE0\FLUTTER_ASSEMBLE.RULE
 setlocal
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -16,9 +16,9 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\ASHIM\ONEDRIVE\DOCUMENTS\REPO\FLUTTERAPPS\GUI_V1\WINDOWS\FLUTTER\CMAKELISTS.TXT
+^C:\USERS\ASHIM\ONEDRIVE\DOCUMENTS\REPO\FLUTTERAPPS\GUI_LAB\GUI_V1\WINDOWS\FLUTTER\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_v1/windows -BC:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_v1/build/windows/x64 --check-stamp-file C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_v1/build/windows/x64/flutter/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/windows -BC:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64 --check-stamp-file C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/flutter/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
