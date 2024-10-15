@@ -52,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
       if (await Permission.manageExternalStorage.isGranted) {
         test();
       } else {
+        debugPrint('Permission denied');
         openAppSettings(); // Prompt user to settings if permission is denied
       }
     } else {
@@ -73,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
         _serialPort = portList.first;
       });
     }
+
   }
 
   void changedDropDownItem(SerialPort sp) {
@@ -124,12 +126,28 @@ class _MyHomePageState extends State<MyHomePage> {
                       if (_serialPort!.open(mode: SerialPortMode.readWrite)) {
                         debugPrint('${_serialPort!.name} opened!');
                         data = _serialPort!.name!;
+                        SerialPortConfig config = _serialPort!.config;
+
+
+                        config.baudRate = 9600;  // Set the appropriate baud rate
+                        config.parity = SerialPortParity.none;
+                        config.bits = 8;
+                        // config.cts = 16;
+                        // config.rts = 14;
+                        config.stopBits = 1;
+                        config.flowControl = SerialPortFlowControl.rtsCts;
+
+
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => Second(
                                   data: data, port: _serialPort!)),
                         );
+                      }else{
+
+                        debugPrint('${SerialPort.lastError} ');
+                        debugPrint('${_serialPort!.name} can\'t be opened');
                       }
                     },
                   ),
@@ -141,6 +159,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+}
+
+extension on SerialPortConfig {
+  set flowControl(int flowControl) {}
 }
 
 class Second extends StatefulWidget {
