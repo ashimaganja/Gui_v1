@@ -21,7 +21,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F9F312DB-DB8C-3C13-8925-40DCC00C6FA8}</ProjectGuid>
+    <ProjectGuid>{E55AB093-2B35-3DD9-B3DB-486AEC79E237}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -88,11 +88,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\windows\runner\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\windows\runner\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/windows -BC:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64 --check-stamp-file C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/windows -BC:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64 --check-stamp-file C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/runner/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -101,11 +101,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/windows -BC:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64 --check-stamp-file C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/windows -BC:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64 --check-stamp-file C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/runner/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -114,11 +114,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/windows -BC:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64 --check-stamp-file C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/windows -BC:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64 --check-stamp-file C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/runner/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -127,21 +127,21 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\build\windows\x64\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\build\windows\x64\ZERO_CHECK.vcxproj">
-      <Project>{946E0A48-F8D3-39C7-B2BC-4B7CEA6CC415}</Project>
+    <ProjectReference Include="C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\build\windows\x64\ZERO_CHECK.vcxproj">
+      <Project>{27343073-4610-30F9-B6FD-8343FC99BE51}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\build\windows\x64\runner\gui_v1.vcxproj">
-      <Project>{BC181AE1-1D9D-31E3-B09C-11AE79E25F12}</Project>
+    <ProjectReference Include="C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\build\windows\x64\runner\gui_v1.vcxproj">
+      <Project>{3B241D9B-E43B-34B9-B0FF-15D4EA1F9C9E}</Project>
       <Name>gui_v1</Name>
     </ProjectReference>
   </ItemGroup>

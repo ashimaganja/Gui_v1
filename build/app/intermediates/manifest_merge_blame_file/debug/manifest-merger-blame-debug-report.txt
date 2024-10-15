@@ -14,25 +14,25 @@
 14    -->
 15
 16    <uses-permission android:name="android.permission.INTERNET" />
-16-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\debug\AndroidManifest.xml:7:5-66
-16-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\debug\AndroidManifest.xml:7:22-64
+16-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\debug\AndroidManifest.xml:7:5-66
+16-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\debug\AndroidManifest.xml:7:22-64
 17
 18    <uses-feature android:name="android.hardware.usb.host" />
-18-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:2:5-62
-18-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:2:19-59
+18-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:2:5-62
+18-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:2:19-59
 19
 20    <uses-permission android:name="android.permission.USB_PERMISSION" />
-20-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:3:5-73
-20-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:3:22-70
+20-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:3:5-73
+20-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:3:22-70
 21    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-21-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:4:5-80
-21-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:4:22-77
+21-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:4:5-80
+21-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:4:22-77
 22    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-22-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:5:5-81
-22-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:5:22-78
+22-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:5:5-81
+22-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:5:22-78
 23    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-23-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:6:5-81
-23-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:6:22-79
+23-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:6:5-81
+23-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:6:22-79
 24    <!--
 25 Required to query activities that can process text, see:
 26         https://developer.android.com/training/package-visibility and
@@ -41,16 +41,16 @@
 29         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
 30    -->
 31    <queries>
-31-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:48:5-53:15
+31-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:48:5-53:15
 32        <intent>
-32-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:49:9-52:18
+32-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:49:9-52:18
 33            <action android:name="android.intent.action.PROCESS_TEXT" />
-33-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:50:13-72
-33-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:50:21-70
+33-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:50:13-72
+33-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:50:21-70
 34
 35            <data android:mimeType="text/plain" />
-35-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:51:13-50
-35-->C:\Users\ashim\OneDrive\Documents\repo\flutterapps\gui_lab\Gui_v1\android\app\src\main\AndroidManifest.xml:51:19-48
+35-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:51:13-50
+35-->C:\Users\ashim\OneDrive\Documents\repo\githubproj\Gui_v1\android\app\src\main\AndroidManifest.xml:51:19-48
 36        </intent>
 37    </queries>
 38

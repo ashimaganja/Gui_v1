@@ -2,40 +2,40 @@
 	"sources" : 
 	[
 		{
-			"file" : "C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/nuget-populate"
+			"file" : "C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/nuget-populate"
 		},
 		{
-			"file" : "C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/b78cca83954f9027aa0112d350296cc2/nuget-populate.rule"
+			"file" : "C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/b3fc4988280e5e90a84abd25acfc8b2b/nuget-populate.rule"
 		},
 		{
-			"file" : "C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/df5c27ad375d411edbea59bd4f270445/nuget-populate-complete.rule"
+			"file" : "C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/905349ec0f34438d2dc16cb05dd2d4cd/nuget-populate-complete.rule"
 		},
 		{
-			"file" : "C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/d1f1f4b5df6bc5d29530e30af1245ff3/nuget-populate-build.rule"
+			"file" : "C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/9452560c3f3f2969d05f657331b815df/nuget-populate-build.rule"
 		},
 		{
-			"file" : "C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/d1f1f4b5df6bc5d29530e30af1245ff3/nuget-populate-configure.rule"
+			"file" : "C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/9452560c3f3f2969d05f657331b815df/nuget-populate-configure.rule"
 		},
 		{
-			"file" : "C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/d1f1f4b5df6bc5d29530e30af1245ff3/nuget-populate-copyfile.rule"
+			"file" : "C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/9452560c3f3f2969d05f657331b815df/nuget-populate-copyfile.rule"
 		},
 		{
-			"file" : "C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/d1f1f4b5df6bc5d29530e30af1245ff3/nuget-populate-download.rule"
+			"file" : "C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/9452560c3f3f2969d05f657331b815df/nuget-populate-download.rule"
 		},
 		{
-			"file" : "C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/d1f1f4b5df6bc5d29530e30af1245ff3/nuget-populate-install.rule"
+			"file" : "C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/9452560c3f3f2969d05f657331b815df/nuget-populate-install.rule"
 		},
 		{
-			"file" : "C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/d1f1f4b5df6bc5d29530e30af1245ff3/nuget-populate-mkdir.rule"
+			"file" : "C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/9452560c3f3f2969d05f657331b815df/nuget-populate-mkdir.rule"
 		},
 		{
-			"file" : "C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/d1f1f4b5df6bc5d29530e30af1245ff3/nuget-populate-patch.rule"
+			"file" : "C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/9452560c3f3f2969d05f657331b815df/nuget-populate-patch.rule"
 		},
 		{
-			"file" : "C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/d1f1f4b5df6bc5d29530e30af1245ff3/nuget-populate-test.rule"
+			"file" : "C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/9452560c3f3f2969d05f657331b815df/nuget-populate-test.rule"
 		},
 		{
-			"file" : "C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/d1f1f4b5df6bc5d29530e30af1245ff3/nuget-populate-update.rule"
+			"file" : "C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/9452560c3f3f2969d05f657331b815df/nuget-populate-update.rule"
 		}
 	],
 	"target" : 

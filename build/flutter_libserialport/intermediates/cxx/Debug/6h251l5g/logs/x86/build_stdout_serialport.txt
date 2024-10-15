@@ -1,2 +1,0 @@
-ninja: Entering directory `C:\Users\ashim\AppData\Local\Pub\Cache\git\flutter_libserialport-6d8b2807c132041da9fa06c34bce8a6f831ff1f5\android\.cxx\Debug\6h251l5g\x86'
-ninja: no work to do.

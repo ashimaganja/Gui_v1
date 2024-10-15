@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/ashim/OneDrive/Documents/repo/flutterapps/gui_lab/Gui_v1/windows/runner
+# Install script for directory: C:/Users/ashim/OneDrive/Documents/repo/githubproj/Gui_v1/windows/runner
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
