@@ -4,4 +4,4 @@ build
 .dart_tool/flutter_build
 .flutter-plugins
 .flutter-plugins-dependencies
-.metadata
+
