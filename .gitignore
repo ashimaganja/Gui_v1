@@ -1,7 +1,7 @@
 #flutter specific
 build
 .idea
-.dart_tool
+.dart_tool/flutter_build
 .flutter-plugins
 .flutter-plugins-dependencies
 .metadata
