@@ -1,4 +1,9 @@
 import 'dart:io';
+
+import 'dart:convert';
+import 'dart:typed_data';
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_libserialport/flutter_libserialport.dart';
@@ -119,36 +124,44 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   const SizedBox(width: 50.0),
                   OutlinedButton(
-                    child: const Text("Open"),
+                    child: const Text("Select"),
                     onPressed: () {
-                      if (_serialPort == null) return;
-
-                      if (_serialPort!.open(mode: SerialPortMode.readWrite)) {
-                        debugPrint('${_serialPort!.name} opened!');
-                        data = _serialPort!.name!;
-                        SerialPortConfig config = _serialPort!.config;
+                      if (_serialPort == null){ return;}
+                      else{
 
 
-                        config.baudRate = 9600;  // Set the appropriate baud rate
-                        config.parity = SerialPortParity.none;
-                        config.bits = 8;
-                        // config.cts = 16;
-                        // config.rts = 14;
-                        config.stopBits = 1;
-                        config.flowControl = SerialPortFlowControl.rtsCts;
+                      // if (_serialPort!.open(mode: SerialPortMode.readWrite)) {
+                      //   debugPrint('${_serialPort!.name} opened!');
+                      //   data = _serialPort!.name!;
+                      //   SerialPortConfig config = _serialPort!.config;
+                      //
+                      //     // https://www.sigrok.org/api/libserialport/0.1.1/a00007.html#gab14927cf0efee73b59d04a572b688fa0
+                      //     // https://www.sigrok.org/api/libserialport/0.1.1/a00004_source.html
+                      //     config.baudRate = 115200;
+                      //     config.parity = 0;
+                      //     config.bits = 8;
+                      //     config.cts = 0;
+                      //     config.rts = 0;
+                      //     config.stopBits = 1;
+                      //     config.xonXoff = 0;
+                      //     _serialPort!.config = config;
 
 
-                        Navigator.push(
+                  data = _serialPort!.name!;
+
+
+                  Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => Second(
                                   data: data, port: _serialPort!)),
                         );
-                      }else{
-
-                        debugPrint('${SerialPort.lastError} ');
-                        debugPrint('${_serialPort!.name} can\'t be opened');
                       }
+                      // else{
+                      //
+                      //   debugPrint('${SerialPort.lastError} ');
+                      //   debugPrint('${_serialPort!.name} can\'t be opened');
+                      // }
                     },
                   ),
                 ],
@@ -165,6 +178,11 @@ extension on SerialPortConfig {
   set flowControl(int flowControl) {}
 }
 
+
+/// Note : Ports setting and everything is done on the second page second page.
+
+
+
 class Second extends StatefulWidget {
   final String data;
   final SerialPort port;
@@ -178,20 +196,148 @@ class Second extends StatefulWidget {
 class _SecondState extends State<Second> {
   @override
   Widget build(BuildContext context) {
+
+    final Port = widget.port;
+    debugPrint('${Port.name} hello');
+    final reader = SerialPortReader(Port);
+    List<Uint8List> receiveDataList = [];
+    final textInputCtrl = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(' Port: ${widget.data}'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            widget.port.close();
-            debugPrint("${widget.port.name} is closed");
-            Navigator.pop(context);
-          },
-          child: const Text('Close and Go back!'),
-        ),
-      ),
+      body:
+          Column(
+            children: [
+
+              SizedBox(
+                child :
+                ElevatedButton(
+                  onPressed: () {
+                    widget.port.close();
+                    debugPrint("${widget.port.name} is closed");
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Close and Go back!'),
+                ),
+              ),
+              Row(
+
+                  children:
+                  [
+
+                  OutlinedButton(
+                      child: Text("Open"),
+                      onPressed:(){
+                        /// This issue need to be fixed in different manner:
+                        /// issue 1: A widget that's already open.
+                        /// issue 2: The back button on the widget is causes the port to move back to the home screen without closing the ports
+                        if(widget.port.isOpen){
+                          widget.port.close();
+                          debugPrint('${Port.name} was open and is now closed');
+                        }
+
+                        if (widget.port.open(mode: SerialPortMode.readWrite)) {
+                          debugPrint('${Port.name} opened!');
+                          SerialPortConfig config = widget.port.config;
+                          // https://www.sigrok.org/api/libserialport/0.1.1/a00007.html#gab14927cf0efee73b59d04a572b688fa0
+                          // https://www.sigrok.org/api/libserialport/0.1.1/a00004_source.html
+                          config.baudRate = 115200;
+                          config.parity = 0;
+                          config.bits = 8;
+                          config.cts = 0;
+                          config.rts = 0;
+                          config.stopBits = 1;
+                          config.xonXoff = 0;
+                          widget.port.config = config;
+
+                          if(widget.port.isOpen){
+                            debugPrint('${Port.name} is open.');
+                          }
+                          final reader = SerialPortReader(widget.port);
+                          reader.stream.listen((data) {
+                            debugPrint('received: $data');
+                            receiveDataList.add(data);
+                            setState(() {});
+                          }, onError: (error) {
+                            if (error is SerialPortError) {
+                              debugPrint(
+                                  'error: ${cp949.decodeString(error.message)}, code: ${error.errorCode}');
+                            }
+                          });
+                          }
+                        else{
+
+                          /// There are some hardware issues
+                          /// issue 1: semaphore timeout
+                          /// issue 2: Access denied -> this can be resolved by restarting caused when we try to open already opened port.
+                          debugPrint('${SerialPort.lastError} ');
+                          debugPrint('${Port.name} cannot be opened');
+                        }
+                        setState(() {
+
+                        });
+                    })
+
+            ],
+          ),
+              Expanded(
+                flex: 8,
+                child: Card(
+                  margin: const EdgeInsets.all(10.0),
+                  child: ListView.builder(
+                      itemCount: receiveDataList.length,
+                      itemBuilder: (context, index) {
+                        /*
+                      OUTPUT for raw bytes
+                      return Text(receiveDataList[index].toString());
+                      */
+                        /* output for string */
+                        return Text(String.fromCharCodes(receiveDataList[index]));
+                      }),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: TextField(
+                        enabled: (widget.port.isOpen)
+                            ? true
+                            : false,
+                        controller: textInputCtrl,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    child: TextButton.icon(
+                      onPressed: (widget.port.isOpen)
+                          ? () {
+                        if (widget.port.write(Uint8List.fromList(
+                            textInputCtrl.text.codeUnits)) ==
+                            textInputCtrl.text.codeUnits.length) {
+                          setState(() {
+                            textInputCtrl.text = '';
+                          });
+                        }
+                      }
+                          : null,
+                      icon: const Icon(Icons.send),
+                      label: const Text("Send"),
+                    ),
+                  ),
+                ],
+              ),
+
+    ]
+    )
     );
+
   }
 }
