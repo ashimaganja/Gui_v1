@@ -198,146 +198,363 @@ class _SecondState extends State<Second> {
   Widget build(BuildContext context) {
 
     final Port = widget.port;
-    debugPrint('${Port.name} hello');
+    debugPrint('${Port.name}');
     final reader = SerialPortReader(Port);
     List<Uint8List> receiveDataList = [];
     final textInputCtrl = TextEditingController();
+    List<String> sentMessages = [""];
+    String message = "";
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(' Port: ${widget.data}'),
-      ),
-      body:
-          Column(
-            children: [
 
-              SizedBox(
-                child :
-                ElevatedButton(
-                  onPressed: () {
-                    widget.port.close();
-                    debugPrint("${widget.port.name} is closed");
-                    Navigator.pop(context);
-                  },
-                  child: const Text('Close and Go back!'),
-                ),
-              ),
-              Row(
 
-                  children:
-                  [
+return Scaffold(
+  appBar: AppBar(
+    title: Text('Port ${widget.data}'),
+  ),
+  body:
+  Padding(
+    padding: const EdgeInsets.all(16.0),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        // Input Box
 
-                  OutlinedButton(
-                      child: Text("Open"),
-                      onPressed:(){
-                        /// This issue need to be fixed in different manner:
-                        /// issue 1: A widget that's already open.
-                        /// issue 2: The back button on the widget is causes the port to move back to the home screen without closing the ports
-                        if(widget.port.isOpen){
-                          widget.port.close();
-                          debugPrint('${Port.name} was open and is now closed');
-                        }
 
-                        if (widget.port.open(mode: SerialPortMode.readWrite)) {
-                          debugPrint('${Port.name} opened!');
-                          SerialPortConfig config = widget.port.config;
-                          // https://www.sigrok.org/api/libserialport/0.1.1/a00007.html#gab14927cf0efee73b59d04a572b688fa0
-                          // https://www.sigrok.org/api/libserialport/0.1.1/a00004_source.html
-                          config.baudRate = 115200;
-                          config.parity = 0;
-                          config.bits = 8;
-                          config.cts = 0;
-                          config.rts = 0;
-                          config.stopBits = 1;
-                          config.xonXoff = 0;
-                          widget.port.config = config;
+        SizedBox(height: 20), // Spacing
 
-                          if(widget.port.isOpen){
-                            debugPrint('${Port.name} is open.');
-                          }
-                          final reader = SerialPortReader(widget.port);
-                          reader.stream.listen((data) {
-                            debugPrint('received: $data');
-                            receiveDataList.add(data);
-                            setState(() {});
-                          }, onError: (error) {
-                            if (error is SerialPortError) {
-                              debugPrint(
-                                  'error: ${cp949.decodeString(error.message)}, code: ${error.errorCode}');
-                            }
-                          });
-                          }
-                        else{
+        // Buttons
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                      widget.port.close();
+                      debugPrint("${widget.port.name} is closed");
+                    //  Navigator.pop(context);
+                    },
+                    child: const Text('Close Port'),
+                  ),
+            ElevatedButton(
+              child: const Text('Open Port'),
+              onPressed: (){
+                  if(widget.port.isOpen){
+                      widget.port.close();
+                      debugPrint('${Port.name} was open and is now closed');
+                  }
 
-                          /// There are some hardware issues
-                          /// issue 1: semaphore timeout
-                          /// issue 2: Access denied -> this can be resolved by restarting caused when we try to open already opened port.
-                          debugPrint('${SerialPort.lastError} ');
-                          debugPrint('${Port.name} cannot be opened');
-                        }
-                        setState(() {
+                  if (widget.port.open(mode: SerialPortMode.readWrite)) {
+                    debugPrint('${Port.name} opened!');
+                    SerialPortConfig config = widget.port.config;
+                    // https://www.sigrok.org/api/libserialport/0.1.1/a00007.html#gab14927cf0efee73b59d04a572b688fa0
+                    // https://www.sigrok.org/api/libserialport/0.1.1/a00004_source.html
+                    config.baudRate = 115200;
+                    config.parity = 0;
+                    config.bits = 8;
+                    config.cts = 0;
+                    config.rts = 0;
+                    config.stopBits = 1;
+                    config.xonXoff = 0;
+                    widget.port.config = config;
+
+                    if(widget.port.isOpen){
+                      debugPrint('${Port.name} is open.');
+                    }
+                    final reader = SerialPortReader(widget.port);
+                    reader.stream.listen((data) {
+                        debugPrint('received: $data');
+                        receiveDataList.add(data);
+                        setState(() {});
+                      }, onError: (error) {
+                    if (error is SerialPortError) {
+                      debugPrint('error: ${cp949.decodeString(error.message)}, code: ${error.errorCode}');
+                    }
+                    }
+                    );
+                  }else{
+                    debugPrint('${SerialPort.lastError} ');
+                    debugPrint('${Port.name} cannot be opened');
+
+                  }setState(() {
+
+                                      });
+                            })
+
+          ],
+        ),
+        SizedBox(height: 20),
+
+        SizedBox(
+
+            width: double.infinity,
+            child:
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(child:   TextField(
+                  enabled: (widget.port.isOpen) ? true : false,
+                  controller: textInputCtrl,
+                  decoration: const InputDecoration(
+                    labelText: 'Enter your input',
+                    border: OutlineInputBorder(),
+
+                  ),
+                ),),
+
+                const SizedBox(width: 10),
+                // Sen d Button
+                TextButton.icon(
+                    onPressed: (widget.port.isOpen) ? (){
+                      if(widget.port.write(Uint8List.fromList(textInputCtrl.text.codeUnits)) == textInputCtrl.text.codeUnits.length){
+                        setState((){
+                          message = textInputCtrl.text;
+                          sentMessages.add(textInputCtrl.text);
+                          textInputCtrl.text = "";
 
                         });
-                    })
+                      }
+                      // Your send button logic here
+                    }:null,
+                    icon: const Icon(Icons.send),
+                    label: const Text("Send")
 
-            ],
-          ),
-              Expanded(
-                flex: 8,
-                child: Card(
-                  margin: const EdgeInsets.all(10.0),
+                ),
+
+
+              ],
+            )
+        ),
+
+
+
+        SizedBox(height: 10), // Spacing
+
+        // Input Data Display Box
+        SizedBox(
+           child:
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+
+                  width: 600,
+                  height: 400,
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child:
+
+                  Text(message),
+
+                ),
+
+                SizedBox(height: 20), // Spacing
+
+                // Output Data Display Box
+
+                Container(
+                  width: 600,
+                  height: 400,
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                   child: ListView.builder(
+
                       itemCount: receiveDataList.length,
-                      itemBuilder: (context, index) {
-                        /*
+                      itemBuilder:  (context, index) {
+                    /*
                       OUTPUT for raw bytes
                       return Text(receiveDataList[index].toString());
                       */
-                        /* output for string */
-                        return Text(String.fromCharCodes(receiveDataList[index]));
-                      }),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10.0),
-                      child: TextField(
-                        enabled: (widget.port.isOpen)
-                            ? true
-                            : false,
-                        controller: textInputCtrl,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    child: TextButton.icon(
-                      onPressed: (widget.port.isOpen)
-                          ? () {
-                        if (widget.port.write(Uint8List.fromList(
-                            textInputCtrl.text.codeUnits)) ==
-                            textInputCtrl.text.codeUnits.length) {
-                          setState(() {
-                            textInputCtrl.text = '';
-                          });
-                        }
-                      }
-                          : null,
-                      icon: const Icon(Icons.send),
-                      label: const Text("Send"),
-                    ),
-                  ),
-                ],
-              ),
+                    /* output for string */
+                    return Text(String.fromCharCodes(receiveDataList[index]));
+                  })
+                  //Text('Output Data will appear here'),
+                )
+              ],
+            ),
+        ),
+        const SizedBox(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Input to the Port"),
+              Text("Output from the port")
+            ],
+          ),
+        ),
+        // Pushes the send button to the bottom
 
-    ]
-    )
-    );
+
+
+
+
+
+
+      ],
+    ),
+  ),
+);
+
+
+
+/// Fixing the display on the screen where to display the widgets
+
+
+    //       Column(
+    //         children: [
+    //
+    //           SizedBox(
+    //             child :
+    //             ElevatedButton(
+    //               onPressed: () {
+    //                 widget.port.close();
+    //                 debugPrint("${widget.port.name} is closed");
+    //                 Navigator.pop(context);
+    //               },
+    //               child: const Text('Close and Go back!'),
+    //             ),
+    //           ),
+    //           Row(
+    //
+    //               children:
+    //               [
+    //
+    //               OutlinedButton(
+    //                   child: Text("Open"),
+    //                   onPressed:(){
+    //                     /// This issue need to be fixed in different manner:
+    //                     /// issue 1: A widget that's already open.
+    //                     /// issue 2: The back button on the widget is causes the port to move back to the home screen without closing the ports
+    //                     if(widget.port.isOpen){
+    //                       widget.port.close();
+    //                       debugPrint('${Port.name} was open and is now closed');
+    //                     }
+    //
+    //                     if (widget.port.open(mode: SerialPortMode.readWrite)) {
+    //                       debugPrint('${Port.name} opened!');
+    //                       SerialPortConfig config = widget.port.config;
+    //                       // https://www.sigrok.org/api/libserialport/0.1.1/a00007.html#gab14927cf0efee73b59d04a572b688fa0
+    //                       // https://www.sigrok.org/api/libserialport/0.1.1/a00004_source.html
+    //                       config.baudRate = 115200;
+    //                       config.parity = 0;
+    //                       config.bits = 8;
+    //                       config.cts = 0;
+    //                       config.rts = 0;
+    //                       config.stopBits = 1;
+    //                       config.xonXoff = 0;
+    //                       widget.port.config = config;
+    //
+    //                       if(widget.port.isOpen){
+    //                         debugPrint('${Port.name} is open.');
+    //                       }
+    //                       final reader = SerialPortReader(widget.port);
+    //                       reader.stream.listen((data) {
+    //                         debugPrint('received: $data');
+    //                         receiveDataList.add(data);
+    //                         setState(() {});
+    //                       }, onError: (error) {
+    //                         if (error is SerialPortError) {
+    //                           debugPrint(
+    //                               'error: ${cp949.decodeString(error.message)}, code: ${error.errorCode}');
+    //                         }
+
+    //                       });
+    //                       }
+    //                     else{
+    //
+    //                       /// There are some hardware issues
+    //                       /// issue 1: semaphore timeout
+    //                       /// issue 2: Access denied -> this can be resolved by restarting caused when we try to open already opened port.
+    //                       debugPrint('${SerialPort.lastError} ');
+    //                       debugPrint('${Port.name} cannot be opened');
+    //                     }
+    //                     setState(() {
+    //
+    //                     });
+    //                 })
+    //
+    //         ],
+    //       ),
+    //           Text("Data From Port"),
+    //           Expanded(
+    //             flex: 1,
+    //             child: Card(
+    //
+    //               margin: const EdgeInsets.all(10.0),
+    //               child: ListView.builder(
+    //                   itemCount: receiveDataList.length,
+    //                   itemBuilder: (context, index) {
+    //                    debugPrint("${receiveDataList.length}");
+    //                   //OUTPUT for raw bytes
+    //                   //return Text(receiveDataList[index].toString());
+    //
+    //                     /* output for string */
+    //                     return Text(String.fromCharCodes(receiveDataList[index]));
+    //                   }),
+    //             ),
+    //           ),
+    //           Row(
+    //             mainAxisAlignment: MainAxisAlignment.end,
+    //             children: [
+    //
+    //               Flexible(
+    //                 child: Padding(
+    //                   padding: const EdgeInsets.symmetric(vertical: 10.0),
+    //                   child: TextField(
+    //                     enabled: (widget.port.isOpen)
+    //                         ? true
+    //                         : false,
+    //                     controller: textInputCtrl,
+    //                     decoration: const InputDecoration(
+    //                       border: OutlineInputBorder(),
+    //                     ),
+    //                   ),
+    //                 ),
+    //               ),
+    //               Flexible(
+    //                 child: TextButton.icon(
+    //                   onPressed: (widget.port.isOpen)
+    //                       ? () {
+    //                     if (widget.port.write(Uint8List.fromList(
+    //                         textInputCtrl.text.codeUnits)) ==
+    //                         textInputCtrl.text.codeUnits.length) {
+    //                       setState(() {
+    //                         sentMessages.add(textInputCtrl.text); //store the sent message
+    //                         textInputCtrl.text = ''; //clear the input field
+    //                       });
+    //                     }
+    //
+    //                     debugPrint("${sentMessages.length}");
+    //                     debugPrint("${sentMessages.first}");
+    //
+    //                   }
+    //                       : null,
+    //                   icon: const Icon(Icons.send),
+    //                   label: const Text("Send"),
+    //                 ),
+    //               ),
+    //
+    //
+    //             Flexible(
+    //               child: Container(
+    //                 padding: EdgeInsets.all(16.0),
+    //                 decoration: BoxDecoration(
+    //                   border: Border.all(color: Colors.blue),
+    //                   borderRadius: BorderRadius.circular(8.0),
+    //                 ),
+    //             )
+    //
+    //             )
+    //             ],
+    //           ),
+    //
+    // ]
+    // )
+   // );
 
   }
 }
