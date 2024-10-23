@@ -203,8 +203,8 @@ class _SecondState extends State<Second> {
     List<Uint8List> receiveDataList = [];
     final textInputCtrl = TextEditingController();
     List<String> sentMessages = [""];
-    String message = "";
-
+    String message = "empty";
+    ValueNotifier<String> messageNotifier = ValueNotifier("empty");
 
 
 return Scaffold(
@@ -296,19 +296,31 @@ return Scaffold(
                   decoration: const InputDecoration(
                     labelText: 'Enter your input',
                     border: OutlineInputBorder(),
-
                   ),
                 ),),
 
                 const SizedBox(width: 10),
                 // Sen d Button
+
+                // ValueListenableBuilder(
+                //   valueListenable: messageNotifier,
+                //   builder: (context, child, value) {
+                //     var texting = messageNotifier.value.toString();
+                //     return Text('Message: $texting');
+                //   },
+                // ),
+
                 TextButton.icon(
                     onPressed: (widget.port.isOpen) ? (){
+                      debugPrint("${textInputCtrl.text} ");
+                      messageNotifier.value = textInputCtrl.text;
                       if(widget.port.write(Uint8List.fromList(textInputCtrl.text.codeUnits)) == textInputCtrl.text.codeUnits.length){
                         setState((){
                           message = textInputCtrl.text;
                           sentMessages.add(textInputCtrl.text);
                           textInputCtrl.text = "";
+
+
 
                         });
                       }
@@ -345,7 +357,14 @@ return Scaffold(
                   ),
                   child:
 
-                  Text(message),
+                  ValueListenableBuilder(
+                    valueListenable: messageNotifier,
+                    builder: (context, child, value) {
+                      var texting = messageNotifier.value.toString();
+                      debugPrint('${sentMessages.length}');
+                      return Text('Message: $texting');
+                    },
+                  ),
 
                 ),
 
