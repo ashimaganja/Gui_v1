@@ -302,13 +302,6 @@ return Scaffold(
                 const SizedBox(width: 10),
                 // Sen d Button
 
-                // ValueListenableBuilder(
-                //   valueListenable: messageNotifier,
-                //   builder: (context, child, value) {
-                //     var texting = messageNotifier.value.toString();
-                //     return Text('Message: $texting');
-                //   },
-                // ),
 
                 TextButton.icon(
                     onPressed: (widget.port.isOpen) ? (){
@@ -319,8 +312,6 @@ return Scaffold(
                           message = textInputCtrl.text;
                           sentMessages.add(textInputCtrl.text);
                           textInputCtrl.text = "";
-
-
 
                         });
                       }
@@ -360,9 +351,10 @@ return Scaffold(
                   ValueListenableBuilder(
                     valueListenable: messageNotifier,
                     builder: (context, child, value) {
+
                       var texting = messageNotifier.value.toString();
                       debugPrint('${sentMessages.length}');
-                      return Text('Message: $texting');
+                      return Text('${DateTime.now()} Message: $texting');
                     },
                   ),
 
@@ -419,161 +411,6 @@ return Scaffold(
 );
 
 
-
-/// Fixing the display on the screen where to display the widgets
-
-
-    //       Column(
-    //         children: [
-    //
-    //           SizedBox(
-    //             child :
-    //             ElevatedButton(
-    //               onPressed: () {
-    //                 widget.port.close();
-    //                 debugPrint("${widget.port.name} is closed");
-    //                 Navigator.pop(context);
-    //               },
-    //               child: const Text('Close and Go back!'),
-    //             ),
-    //           ),
-    //           Row(
-    //
-    //               children:
-    //               [
-    //
-    //               OutlinedButton(
-    //                   child: Text("Open"),
-    //                   onPressed:(){
-    //                     /// This issue need to be fixed in different manner:
-    //                     /// issue 1: A widget that's already open.
-    //                     /// issue 2: The back button on the widget is causes the port to move back to the home screen without closing the ports
-    //                     if(widget.port.isOpen){
-    //                       widget.port.close();
-    //                       debugPrint('${Port.name} was open and is now closed');
-    //                     }
-    //
-    //                     if (widget.port.open(mode: SerialPortMode.readWrite)) {
-    //                       debugPrint('${Port.name} opened!');
-    //                       SerialPortConfig config = widget.port.config;
-    //                       // https://www.sigrok.org/api/libserialport/0.1.1/a00007.html#gab14927cf0efee73b59d04a572b688fa0
-    //                       // https://www.sigrok.org/api/libserialport/0.1.1/a00004_source.html
-    //                       config.baudRate = 115200;
-    //                       config.parity = 0;
-    //                       config.bits = 8;
-    //                       config.cts = 0;
-    //                       config.rts = 0;
-    //                       config.stopBits = 1;
-    //                       config.xonXoff = 0;
-    //                       widget.port.config = config;
-    //
-    //                       if(widget.port.isOpen){
-    //                         debugPrint('${Port.name} is open.');
-    //                       }
-    //                       final reader = SerialPortReader(widget.port);
-    //                       reader.stream.listen((data) {
-    //                         debugPrint('received: $data');
-    //                         receiveDataList.add(data);
-    //                         setState(() {});
-    //                       }, onError: (error) {
-    //                         if (error is SerialPortError) {
-    //                           debugPrint(
-    //                               'error: ${cp949.decodeString(error.message)}, code: ${error.errorCode}');
-    //                         }
-
-    //                       });
-    //                       }
-    //                     else{
-    //
-    //                       /// There are some hardware issues
-    //                       /// issue 1: semaphore timeout
-    //                       /// issue 2: Access denied -> this can be resolved by restarting caused when we try to open already opened port.
-    //                       debugPrint('${SerialPort.lastError} ');
-    //                       debugPrint('${Port.name} cannot be opened');
-    //                     }
-    //                     setState(() {
-    //
-    //                     });
-    //                 })
-    //
-    //         ],
-    //       ),
-    //           Text("Data From Port"),
-    //           Expanded(
-    //             flex: 1,
-    //             child: Card(
-    //
-    //               margin: const EdgeInsets.all(10.0),
-    //               child: ListView.builder(
-    //                   itemCount: receiveDataList.length,
-    //                   itemBuilder: (context, index) {
-    //                    debugPrint("${receiveDataList.length}");
-    //                   //OUTPUT for raw bytes
-    //                   //return Text(receiveDataList[index].toString());
-    //
-    //                     /* output for string */
-    //                     return Text(String.fromCharCodes(receiveDataList[index]));
-    //                   }),
-    //             ),
-    //           ),
-    //           Row(
-    //             mainAxisAlignment: MainAxisAlignment.end,
-    //             children: [
-    //
-    //               Flexible(
-    //                 child: Padding(
-    //                   padding: const EdgeInsets.symmetric(vertical: 10.0),
-    //                   child: TextField(
-    //                     enabled: (widget.port.isOpen)
-    //                         ? true
-    //                         : false,
-    //                     controller: textInputCtrl,
-    //                     decoration: const InputDecoration(
-    //                       border: OutlineInputBorder(),
-    //                     ),
-    //                   ),
-    //                 ),
-    //               ),
-    //               Flexible(
-    //                 child: TextButton.icon(
-    //                   onPressed: (widget.port.isOpen)
-    //                       ? () {
-    //                     if (widget.port.write(Uint8List.fromList(
-    //                         textInputCtrl.text.codeUnits)) ==
-    //                         textInputCtrl.text.codeUnits.length) {
-    //                       setState(() {
-    //                         sentMessages.add(textInputCtrl.text); //store the sent message
-    //                         textInputCtrl.text = ''; //clear the input field
-    //                       });
-    //                     }
-    //
-    //                     debugPrint("${sentMessages.length}");
-    //                     debugPrint("${sentMessages.first}");
-    //
-    //                   }
-    //                       : null,
-    //                   icon: const Icon(Icons.send),
-    //                   label: const Text("Send"),
-    //                 ),
-    //               ),
-    //
-    //
-    //             Flexible(
-    //               child: Container(
-    //                 padding: EdgeInsets.all(16.0),
-    //                 decoration: BoxDecoration(
-    //                   border: Border.all(color: Colors.blue),
-    //                   borderRadius: BorderRadius.circular(8.0),
-    //                 ),
-    //             )
-    //
-    //             )
-    //             ],
-    //           ),
-    //
-    // ]
-    // )
-   // );
 
   }
 }
