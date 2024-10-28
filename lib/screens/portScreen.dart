@@ -29,6 +29,16 @@ class _portScreenState extends State<portScreen> {
     String message = "empty";
     ValueNotifier<String> messageNotifier = ValueNotifier("empty");
 
+    List<InputMessages> inputMessages = [];
+    Future<void> reconnectPort() async {
+      try {
+        await widget.port.close();  // Ensure the port is closed
+        await widget.port.open(mode: 0);   // Attempt to reopen the port
+        debugPrint("Port reopened successfully.");
+      } catch (e) {
+        debugPrint("Failed to reconnect the port: $e");
+      }
+    }
 
 
     return Scaffold(
@@ -132,100 +142,122 @@ class _portScreenState extends State<portScreen> {
                       // Sen d Button
 
 
-                      TextButton.icon(
-                          onPressed: (widget.port.isOpen) ? (){
-                            debugPrint("${textInputCtrl.text} ");
-                            messageNotifier.value = textInputCtrl.text;
-                            if(widget.port.write(Uint8List.fromList(textInputCtrl.text.codeUnits)) == textInputCtrl.text.codeUnits.length){
-                              setState((){
-                                message = textInputCtrl.text;
-                                sentMessages.add(textInputCtrl.text);
-                                textInputCtrl.text = "";
+            TextButton.icon(
+              onPressed: (widget.port.isOpen) ? () async {
+                try {
+                  debugPrint("${textInputCtrl.text}");
+                  messageNotifier.value = textInputCtrl.text;
 
-                              });
-                            }
-                            // Your send button logic here
-                          }:null,
-                          icon: const Icon(Icons.send),
-                          label: const Text("Send")
+                  // Check if the port is open before writing
+                  if (widget.port.isOpen) {
+                    int bytesWritten = await widget.port.write(Uint8List.fromList(textInputCtrl.text.codeUnits));
 
-                      ),
+                    // Verify if all bytes were written
+                    if (bytesWritten == textInputCtrl.text.codeUnits.length) {
+                      inputMessages.add(InputMessages(message: textInputCtrl.text, time: DateTime.now()));
+                      setState(() {
+                        message = textInputCtrl.text;
+                        sentMessages.add(textInputCtrl.text);
+                        textInputCtrl.clear(); // Clear the text area
+
+                        inputMessages.add(InputMessages(message: message, time: DateTime.now()));
+                        debugPrint(" cat ${inputMessages[0].message}");
+                      });
+                    } else {
+                      debugPrint("Failed to send complete message. Attempting to reopen port.");
+                      await reconnectPort();
+                    }
+                  } else {
+                    debugPrint("Port is closed. Attempting to reopen port.");
+                    await reconnectPort();
+                  }
+                } catch (e) {
+                  debugPrint("Error: $e. Attempting to reconnect.");
+                  await reconnectPort();
+                }
+              } : null,
+              icon: Icon(Icons.send),
+              label: Text("Send"),
+
+            ),
+
+// Function to reconnect the port
+   
 
 
-                    ],
+
+        ],
                   )
               ),
-
-
 
               SizedBox(height: 10), // Spacing
 
               // Input Data Display Box
-              SizedBox(
-                child:
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-
-                      width: 600,
-                      height: 400,
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child:
-
-                      ValueListenableBuilder(
-                        valueListenable: messageNotifier,
-                        builder: (context, child, value) {
-
-                          var texting = messageNotifier.value.toString();
-                          debugPrint('${sentMessages.length}');
-                          return Text('${DateTime.now()} Message: $texting');
-                        },
-                      ),
-
+          SizedBox(
+            width: double.infinity,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // Input Data Display Box
+                Expanded(
+                  child: Container(
+                    height: 400,
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(8),
                     ),
-
-                    SizedBox(height: 20), // Spacing
-
-                    // Output Data Display Box
-
-                    Container(
-                        width: 600,
-                        height: 400,
-
-                        padding: EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: Colors.grey[300],
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: ListView.builder(
-
-                            itemCount: receiveDataList.length,
-                            itemBuilder:  (context, index) {
-
-                              /*
-                        OUTPUT for raw bytes
-                        return Text(receiveDataList[index].toString());
-                        */
-                              /* output for string */
-                              return Text(String.fromCharCodes(receiveDataList[index]));
-
-                            })
-                      //Text('Output Data will appear here'),
+                    child: inputMessages.isNotEmpty
+                        ? ListView.builder(
+                      itemCount: inputMessages.length,
+                      shrinkWrap: true,
+                      padding: EdgeInsets.only(top: 10, bottom: 10),
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return Container(
+                          padding: EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
+                          child: Text(inputMessages[index].message),
+                        );
+                      },
                     )
-                  ],
+                        : Center(child: Text("No input messages")), // Placeholder if empty
+                  ),
                 ),
-              ),
-              const SizedBox(
+
+                SizedBox(width: 20), // Horizontal spacing in Row
+
+                // Output Data Display Box
+                Expanded(
+                  child: Container(
+                    height: 400,
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: receiveDataList.isNotEmpty
+                        ? ListView.builder(
+                      itemCount: receiveDataList.length,
+                      shrinkWrap: true,
+                      padding: EdgeInsets.only(top: 10, bottom: 10),
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return Text(String.fromCharCodes(receiveDataList[index]));
+                      },
+                    )
+                        : Center(child: Text("No data recieved from port")), // Placeholder if empty
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Input to the Port"),
-                    Text("Output from the port")
+                    Text("Input to the Port", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                    Text("Output from the port", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
                   ],
                 ),
               ),
